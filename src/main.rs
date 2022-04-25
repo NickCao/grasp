@@ -62,6 +62,7 @@ async fn process(mut inbound: TcpStream, bind: Ipv6Addr, interface: OsString, pr
         .write_to(&mut inbound)
         .await?;
     let header = TcpRequestHeader::read_from(&mut inbound).await?;
+    println!("INFO: connection from {} to {}", inbound.peer_addr()?, header.address);
     match header.command {
         Command::TcpConnect => {
             let addr = match header.address {
