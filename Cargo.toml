@@ -1,0 +1,10 @@
+[package]
+name = "grasp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = [ "macros", "rt-multi-thread", "net" ] }
+nix = { version = "0.24.1", features = [ "socket" ] }
+shadowsocks-service = "1.14.3"
+argh = "0.1.7"
